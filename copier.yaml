@@ -1,0 +1,96 @@
+_subdirectory: "tmpl"
+_templates_suffix: .j2
+
+project_long_name:
+  type: str
+  help: "Full name of your project used in READMEs etc. (may contain spaces etc.)"
+  default: "Hello World"
+
+project_short_name:
+  type: str
+  help: "Short name of your project used in github/gitlab address etc. (no spaces or special characters)"
+  default: "[[project_long_name | lower | replace(' ', '-')]]"
+
+project_package_name:
+  type: str
+  help: "Python package name of the project"
+  default: "[[project_short_name | replace('-', '_')]]"
+
+project_description:
+  type: str
+  help: "Short description of your project"
+  default: "What is it good for?"
+
+project_version:
+  type: str
+  help: "Initial version of your project"
+  default: "0.0.0"
+
+project_keywords:
+  type: str
+  help: "Keywords that describe your project"
+  default: ""
+
+git_user:
+  type: str
+  help: "User name at github/gitlab where project is hosted"
+
+git_url_provider:
+  type: str
+  help: "Web address of git provider (github/gitlab)"
+  default: "https://github.com"
+
+git_url_org:
+  type: str
+  help: "Name of organization on github/gitlab where project is hosted"
+  default: "[[git_user]]"
+
+git_url:
+  type: str
+  help: "Web address or project on github/gitlab"
+  default: "[[git_provider]]/[[git_org]]/[[project_short_name]].git"
+
+project_url:
+  type: str
+  help: "Web address to your project (may differ from address on github/gitlab)"
+  default: "[[git_url]]"
+
+author_first_name:
+  type: str
+  help: "Your first name"
+  default: Foobert
+
+author_last_name:
+  type: str
+  help: "Your last name"
+  default: Barson
+
+author_full_name:
+  type: str
+  help: "Your full name"
+  default: "[[author_first_name]] [[author_last_name]]"
+
+author_email_name:
+  type: str
+  help: "The part of your email address before '@' (e.g., your name)"
+  default: "[[author_first_name | lower]].[[author_last_name | lower]]"
+
+author_email_domain:
+  type: str
+  help: "The part of your email address after '@' (e.g., your provider/institution)"
+  default: "baz.com"
+
+author_email:
+  type: str
+  help: "Your full email address"
+  default: "[[author_email_name]]@[[author_email_domain]]"
+
+python_version:
+  type: str
+  help: "Target Python version"
+  default: "3.9"
+
+python_requires:
+  type: str
+  help: "Supported Python version specification"
+  default: ">=[[python_version]]"
