@@ -16,6 +16,10 @@ from setuptools import setup
 
 PackageDataT = Dict[str, List[str]]
 
+PROJECT_NAME: str = "[[project_short_name]]"
+PROJECT_VERSION: str = "[[project_version]]"
+PYTHON_REQUIRES: str = ">=[[python_version]]"
+
 
 def read_present_files(paths: Sequence[str]) -> str:
     """Read the content of files in ``paths`` that exist, ignoring others."""
@@ -57,8 +61,8 @@ description_files: list[str] = [
 ]
 
 metadata: dict[str, Any] = {
-    "name": "[[project_short_name]]",
-    "version": "[[project_version]]",
+    "name": PROJECT_NAME,
+    "version": PROJECT_VERSION,
     "description": "[[project_description]]",
     "long_description": read_present_files(description_files),
     "author": "[[author_full_name]]",
@@ -88,7 +92,7 @@ scripts: list[str] = []
 package_data: PackageDataT = find_py_typed()
 
 setup(
-    python_requires=python,
+    python_requires=PYTHON_REQUIRES,
     install_requires=requirements,
     entry_points={"console_scripts": scripts},
     packages=find_packages("src"),
