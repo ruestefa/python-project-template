@@ -4,13 +4,16 @@
 *.nc
 *.png
 *.py[cod]
+*.so
 .ipynb_checkpoints
 .python-version
+.tox/
 .vscode
 /conda-env/
 /conda-envs/
+/data
 /data/
 /venv/
 /venvs/
 __pycache__/
-.tox/
+_skbuild/
