@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: [[project_version]]
+        python-version: [[python_version]]
     - uses: conda-incubator/setup-miniconda@v2
       with:
         miniconda-version: "latest"
@@ -28,7 +28,7 @@ jobs:
         show-channel-urls: true
     - name: Create conda env
       run: |
-        conda create -n precommit python==[[project_version]]
+        conda create -n precommit python==[[python_version]]
         conda activate precommit
         conda install mamba
     - name: Install dependencies

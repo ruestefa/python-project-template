@@ -42,13 +42,13 @@ git_url_provider:
 
 git_url_org:
   type: str
-  help: "Name of organization on github/gitlab where project is hosted"
+  help: "Name of organization on github/gitlab where project is hosted (incl. subgroups on gitlab)"
   default: "[[git_user]]"
 
 git_url:
   type: str
   help: "Web address or project on github/gitlab"
-  default: "[[git_provider]]/[[git_org]]/[[project_short_name]].git"
+  default: "[[git_url_provider]]/[[git_url_org]]/[[project_short_name]].git"
 
 project_url:
   type: str
