@@ -81,11 +81,12 @@ classifiers: list[str] = [
 metadata["classifiers"] = classifiers
 
 # Runtime dependencies (top-level and unpinned)
+install_requires: list[str] = []
 try:
     with open("requirements.in") as f:
         install_requires = list(map(str, parse_requirements(f.readlines())))
 except FileNotFoundError:
-    install_requires: list[str] = []
+    pass
 
 # Format: command=package.module:function
 console_scripts: list[str] = []
