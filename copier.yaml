@@ -14,7 +14,7 @@ project_short_name:
 project_package_name:
   type: str
   help: "Python package name of the project"
-  default: "[[project_short_name | replace('-', '_')]]"
+  default: "{{ project_short_name | replace('-', '_') }}"
 
 project_description:
   type: str
@@ -43,17 +43,17 @@ git_url_provider:
 git_url_org:
   type: str
   help: "Name of organization on github/gitlab where project is hosted (incl. subgroups on gitlab)"
-  default: "[[git_user]]"
+  default: "{{ git_user }}"
 
 git_url:
   type: str
   help: "Web address or project on github/gitlab"
-  default: "[[git_url_provider]]/[[git_url_org]]/[[project_short_name]].git"
+  default: "{{ git_url_provider }}/{{ git_url_org }}/{{ project_short_name }}.git"
 
 project_url:
   type: str
   help: "Web address to your project (may differ from address on github/gitlab)"
-  default: "[[git_url]]"
+  default: "{{ git_url }}"
 
 author_first_name:
   type: str
@@ -68,12 +68,12 @@ author_last_name:
 author_full_name:
   type: str
   help: "Your full name"
-  default: "[[author_first_name]] [[author_last_name]]"
+  default: "{{ author_first_name }} {{ author_last_name }}"
 
 author_email_name:
   type: str
   help: "The part of your email address before '@' (e.g., your name)"
-  default: "[[author_first_name | lower]].[[author_last_name | lower]]"
+  default: "{{ author_first_name | lower }}.{{ author_last_name | lower }}"
 
 author_email_domain:
   type: str
@@ -83,7 +83,7 @@ author_email_domain:
 author_email:
   type: str
   help: "Your full email address"
-  default: "[[author_email_name]]@[[author_email_domain]]"
+  default: "{{ author_email_name }}@{{ author_email_domain }}"
 
 python_version:
   type: str
@@ -93,4 +93,4 @@ python_version:
 python_requires:
   type: str
   help: "Supported Python version specification"
-  default: ">=[[python_version]]"
+  default: ">={{ python_version }}"
