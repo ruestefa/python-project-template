@@ -16,9 +16,9 @@ from setuptools import setup
 
 PackageDataT = Dict[str, List[str]]
 
-PROJECT_NAME: str = "[[project_short_name]]"
-PROJECT_VERSION: str = "[[project_version]]"
-PYTHON_REQUIRES: str = ">=[[python_version]]"
+PROJECT_NAME: str = "{{ project_short_name }}"
+PROJECT_VERSION: str = "{{ project_version }}"
+PYTHON_REQUIRES: str = ">={{ python_version }}"
 
 
 def read_present_files(paths: Sequence[str]) -> str:
@@ -63,12 +63,12 @@ description_files: list[str] = [
 metadata: dict[str, Any] = {
     "name": PROJECT_NAME,
     "version": PROJECT_VERSION,
-    "description": "[[project_description]]",
+    "description": "{{ project_description }}",
     "long_description": read_present_files(description_files),
-    "author": "[[author_full_name]]",
-    "author_email": "[[author_email]]",
-    "url": "[[project_url]]",
-    "keywords": "[[project_keywords]]",
+    "author": "{{ author_full_name }}",
+    "author_email": "{{ author_email }}",
+    "url": "{{ project_url }}",
+    "keywords": "{{ project_keywords }}",
 }
 
 classifiers: list[str] = [
@@ -76,7 +76,7 @@ classifiers: list[str] = [
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: [[python_version]]",
+    "Programming Language :: Python :: {{ python_version }}",
 ]
 metadata["classifiers"] = classifiers
 
